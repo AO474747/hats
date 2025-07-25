@@ -1,0 +1,55 @@
+[
+  {
+    "artikelnummer": "HAT12345",
+    "ean": "1234567890123",
+    "udid": "UD001",
+    "beschreibung": "Warmer Winterhandschuh mit Fleece",
+    "pdfs": {
+      "de": "/pdf/DE_KonformitaetserklaerungHAT12345.pdf",
+      "en": "/pdf/EN_KonformitaetserklaerungHAT12345.pdf",
+      "fr": "/pdf/FR_KonformitaetserklaerungHAT12345.pdf"
+    }
+  },
+  {
+    "artikelnummer": "HAT23456",
+    "ean": "2345678901234",
+    "udid": "UD002",
+    "beschreibung": "Leichter Sommerhut mit UV-Schutz",
+    "pdfs": {
+      "de": "/pdf/DE_KonformitaetserklaerungHAT23456.pdf",
+      "en": "/pdf/EN_KonformitaetserklaerungHAT23456.pdf"
+    }
+  },
+  {
+    "artikelnummer": "HAT34567",
+    "ean": "3456789012345",
+    "udid": "UD003",
+    "beschreibung": "Eleganter Filzhut für Damen",
+    "pdfs": {
+      "de": "/pdf/DE_KonformitaetserklaerungHAT34567.pdf",
+      "en": "/pdf/EN_KonformitaetserklaerungHAT34567.pdf",
+      "fr": "/pdf/FR_KonformitaetserklaerungHAT34567.pdf"
+    }
+  },
+  {
+    "artikelnummer": "HAT45678",
+    "ean": "4567890123456",
+    "udid": "UD004",
+    "beschreibung": "Kinder-Sonnenhut mit Nackenschutz",
+    "pdfs": {
+      "de": "/pdf/DE_KonformitaetserklaerungHAT45678.pdf",
+      "en": "/pdf/EN_KonformitaetserklaerungHAT45678.pdf"
+    }
+  },
+  {
+    "artikelnummer": "HAT56789",
+    "ean": "5678901234567",
+    "udid": "UD005",
+    "beschreibung": "Regenhut mit breiter Krempe",
+    "pdfs": {
+      "de": "/pdf/DE_KonformitaetserklaerungHAT56789.pdf",
+      "en": "/pdf/EN_KonformitaetserklaerungHAT56789.pdf",
+      "fr": "/pdf/FR_KonformitaetserklaerungHAT56789.pdf"
+    }
+  }
+] 
