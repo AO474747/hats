@@ -26,12 +26,24 @@ fetch('https://script.google.com/macros/s/AKfycbwdef9UPveahEToexpEsAvJFP193wCDkK
 
 // Suchfunktion
 function sucheArtikel(query) {
-  query = query.trim().toLowerCase();
-  return artikelDaten.find(artikel =>
-    (artikel.artikelnummer && artikel.artikelnummer.toString().toLowerCase() === query) ||
-    (artikel.ean && artikel.ean.toString() === query) ||
-    (artikel.udid && artikel.udid.toString().toLowerCase() === query)
-  );
+  query = query.trim();
+  console.log('Suche nach:', query);
+  
+  return artikelDaten.find(artikel => {
+    const artikelnummer = artikel.artikelnummer ? artikel.artikelnummer.toString().toLowerCase().trim() : '';
+    const ean = artikel.ean ? artikel.ean.toString().trim() : '';
+    const udid = artikel.udid ? artikel.udid.toString().toLowerCase().trim() : '';
+    
+    console.log('Vergleiche mit:', { artikelnummer, ean, udid });
+    
+    // Vergleiche sowohl mit als auch ohne toLowerCase für Zahlen
+    const queryLower = query.toLowerCase();
+    const queryExact = query;
+    
+    return artikelnummer === queryLower || 
+           ean === queryExact || 
+           udid === queryLower;
+  });
 }
 
 // Ergebnisanzeige
