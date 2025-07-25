@@ -65,11 +65,27 @@ function zeigeErgebnis(artikel) {
     pdfLinks += `<a href="${artikel.pdf_fr}" target="_blank" class="inline-flex items-center mr-3 mb-2 text-blue-700 hover:underline">🇫🇷 FR PDF</a>`;
   }
   
+  // Bild-HTML erstellen (falls vorhanden)
+  let bildHTML = '';
+  if (artikel.bild && artikel.bild.trim() !== '') {
+    bildHTML = `
+      <div class="mb-4">
+        <span class="font-bold">Produktbild:</span><br>
+        <img src="${artikel.bild}" alt="Produktbild" 
+             class="mt-2 max-w-xs rounded-lg shadow-md border border-gray-300"
+             onerror="this.style.display='none'">
+      </div>
+    `;
+  }
+
   resultContainer.innerHTML = `
     <div class="bg-green-100 border border-green-400 text-green-800 px-4 py-4 rounded shadow">
       <div class="mb-2"><span class="font-bold">Artikelname:</span> ${artikel.artikelname || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">Artikelnummer:</span> ${artikel.artikelnummer || 'N/A'}</div>
+      <div class="mb-2"><span class="font-bold">EAN:</span> ${artikel.ean || 'N/A'}</div>
+      <div class="mb-2"><span class="font-bold">UD-ID:</span> ${artikel.udid || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">Beschreibung:</span> ${artikel.beschreibung || 'N/A'}</div>
+      ${bildHTML}
       ${pdfLinks ? `<div class="mb-2"><span class="font-bold">PDF-Links:</span><br>${pdfLinks}</div>` : ''}
     </div>
   `;
