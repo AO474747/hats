@@ -101,7 +101,7 @@ function zeigeErgebnis(artikel) {
         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
-        <img src="${lang.flag}" alt="${lang.lang} Flag" class="w-5 h-4 mr-2 rounded-sm" onerror="this.outerHTML = '${lang.flagEmoji}'">
+        <span class="mr-2 font-bold">[${lang.lang}]</span>
         ${lang.lang} PDF
       </a>`;
     }
