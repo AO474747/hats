@@ -12,7 +12,7 @@ const flags = {
 
 // Daten laden und Suchfunktion initialisieren
 let artikelDaten = [];
-fetch('data.json')
+fetch('https://script.google.com/macros/s/AKfycbwdef9UPveahEToexpEsAvJFP193wCDkKp2E0bzaPlw8q5vfLlgcRSL5DWti40mXiFV/exec')
   .then(res => res.json())
   .then(data => { artikelDaten = data; })
   .catch(() => {
@@ -23,9 +23,9 @@ fetch('data.json')
 function sucheArtikel(query) {
   query = query.trim().toLowerCase();
   return artikelDaten.find(artikel =>
-    artikel.artikelnummer.toLowerCase() === query ||
-    artikel.ean === query ||
-    artikel.udid.toLowerCase() === query
+    (artikel.artikelnummer && artikel.artikelnummer.toLowerCase() === query) ||
+    (artikel.ean && artikel.ean.toString() === query) ||
+    (artikel.udid && artikel.udid.toLowerCase() === query)
   );
 }
 
@@ -36,16 +36,24 @@ function zeigeErgebnis(artikel) {
     return;
   }
   let pdfLinks = '';
-  for (const sprache in artikel.pdfs) {
-    if (artikel.pdfs[sprache]) {
-      pdfLinks += `<a href="${artikel.pdfs[sprache]}" target="_blank" class="inline-flex items-center mr-3 mb-2 text-blue-700 hover:underline">${flags[sprache] || ''}${sprache.toUpperCase()} PDF</a>`;
-    }
+  
+  // PDF-Links aus Google Sheets (direkte Felder)
+  if (artikel.pdf_de) {
+    pdfLinks += `<a href="${artikel.pdf_de}" target="_blank" class="inline-flex items-center mr-3 mb-2 text-blue-700 hover:underline">🇩🇪 DE PDF</a>`;
   }
+  if (artikel.pdf_en) {
+    pdfLinks += `<a href="${artikel.pdf_en}" target="_blank" class="inline-flex items-center mr-3 mb-2 text-blue-700 hover:underline">🇬🇧 EN PDF</a>`;
+  }
+  if (artikel.pdf_fr) {
+    pdfLinks += `<a href="${artikel.pdf_fr}" target="_blank" class="inline-flex items-center mr-3 mb-2 text-blue-700 hover:underline">🇫🇷 FR PDF</a>`;
+  }
+  
   resultContainer.innerHTML = `
     <div class="bg-green-100 border border-green-400 text-green-800 px-4 py-4 rounded shadow">
-      <div class="mb-2"><span class="font-bold">Artikelnummer:</span> ${artikel.artikelnummer}</div>
-      <div class="mb-2"><span class="font-bold">Beschreibung:</span> ${artikel.beschreibung}</div>
-      <div class="mb-2"><span class="font-bold">PDF-Links:</span><br>${pdfLinks}</div>
+      <div class="mb-2"><span class="font-bold">Artikelname:</span> ${artikel.artikelname || 'N/A'}</div>
+      <div class="mb-2"><span class="font-bold">Artikelnummer:</span> ${artikel.artikelnummer || 'N/A'}</div>
+      <div class="mb-2"><span class="font-bold">Beschreibung:</span> ${artikel.beschreibung || 'N/A'}</div>
+      ${pdfLinks ? `<div class="mb-2"><span class="font-bold">PDF-Links:</span><br>${pdfLinks}</div>` : ''}
     </div>
   `;
 }
