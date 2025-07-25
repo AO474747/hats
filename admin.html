@@ -1,115 +1,179 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin – Artikeldaten pflegen</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Open Sans', Arial, sans-serif; }
-    h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Konfigurator Pflege</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-start p-4">
-  <div class="w-full max-w-2xl mt-8">
-    <h1 class="text-2xl font-bold mb-6 text-center" style="color:#f6ae42">Admin: Artikeldaten pflegen</h1>
-    <form id="artikelForm" class="bg-white shadow-md rounded-lg p-6 mb-4">
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">Artikelname</label>
-        <input type="text" id="artikelname" class="w-full border rounded px-3 py-2" required>
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">Artikelnummer</label>
-        <input type="text" id="artikelnummer" class="w-full border rounded px-3 py-2" required>
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">EAN</label>
-        <input type="text" id="ean" class="w-full border rounded px-3 py-2" required>
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">UD-ID</label>
-        <input type="text" id="udid" class="w-full border rounded px-3 py-2" required>
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">Beschreibung</label>
-        <textarea id="beschreibung" class="w-full border rounded px-3 py-2" rows="2" required></textarea>
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-1">Artikelbild-Link (URL)</label>
-        <input type="text" id="bild" class="w-full border rounded px-3 py-2" placeholder="https://...">
-      </div>
-      <div class="mb-4">
-        <label class="block font-semibold mb-2">PDF-Links für Sprachen</label>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <input type="text" id="pdf_de" class="border rounded px-2 py-1" placeholder="Deutsch PDF-Link (de)">
-          <input type="text" id="pdf_nl" class="border rounded px-2 py-1" placeholder="Nederlands PDF-Link (nl)">
-          <input type="text" id="pdf_pl" class="border rounded px-2 py-1" placeholder="Polski PDF-Link (pl)">
-          <input type="text" id="pdf_ro" class="border rounded px-2 py-1" placeholder="Română PDF-Link (ro)">
-          <input type="text" id="pdf_ru" class="border rounded px-2 py-1" placeholder="Русский PDF-Link (ru)">
-          <input type="text" id="pdf_sv" class="border rounded px-2 py-1" placeholder="Svenska PDF-Link (sv)">
-          <input type="text" id="pdf_sl" class="border rounded px-2 py-1" placeholder="Slovenščina PDF-Link (sl)">
-          <input type="text" id="pdf_tr" class="border rounded px-2 py-1" placeholder="Türkçe PDF-Link (tr)">
-          <input type="text" id="pdf_fi" class="border rounded px-2 py-1" placeholder="Suomi PDF-Link (fi)">
-          <input type="text" id="pdf_fr" class="border rounded px-2 py-1" placeholder="Français PDF-Link (fr)">
-          <input type="text" id="pdf_en" class="border rounded px-2 py-1" placeholder="English PDF-Link (en)">
-          <input type="text" id="pdf_it" class="border rounded px-2 py-1" placeholder="Italiano PDF-Link (it)">
-          <input type="text" id="pdf_es" class="border rounded px-2 py-1" placeholder="Español PDF-Link (es)">
-          <input type="text" id="pdf_da" class="border rounded px-2 py-1" placeholder="Dansk PDF-Link (da)">
-          <input type="text" id="pdf_cs" class="border rounded px-2 py-1" placeholder="Čeština PDF-Link (cs)">
-          <input type="text" id="pdf_hu" class="border rounded px-2 py-1" placeholder="Magyar PDF-Link (hu)">
-          <input type="text" id="pdf_hr" class="border rounded px-2 py-1" placeholder="Hrvatski PDF-Link (hr)">
-        </div>
-      </div>
-      <button type="submit" class="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded transition">JSON generieren</button>
-    </form>
-    <div id="jsonOutput" class="bg-gray-100 border border-gray-300 rounded p-4 font-mono text-sm whitespace-pre-wrap"></div>
-  </div>
-  <script>
-    const form = document.getElementById('artikelForm');
-    const output = document.getElementById('jsonOutput');
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const artikelnummer = document.getElementById('artikelnummer').value.trim();
-      const artikelname = document.getElementById('artikelname').value.trim();
-      const ean = document.getElementById('ean').value.trim();
-      const udid = document.getElementById('udid').value.trim();
-      const beschreibung = document.getElementById('beschreibung').value.trim();
-      const bild = document.getElementById('bild').value.trim();
-      const sprachen = ['de','nl','pl','ro','ru','sv','sl','tr','fi','fr','en','it','es','da','cs','hu','hr'];
-      let pdfs = {};
-      sprachen.forEach(sprache => {
-        const val = document.getElementById('pdf_' + sprache).value.trim();
-        if(val) pdfs[sprache] = val;
-      });
-      let artikel = {
-        artikelnummer,
-        artikelname,
-        ean,
-        udid,
-        beschreibung,
-        pdfs
-      };
-      if(bild) artikel.bild = bild;
-      output.textContent = JSON.stringify(artikel, null, 2);
-      // --- NEU: Sende an Netlify Function ---
-      try {
-        const res = await fetch('/.netlify/functions/add-article', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(artikel)
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Admin - Konfigurator Pflege</h1>
+        
+        <form id="adminForm" class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+            <!-- Artikelname -->
+            <div class="mb-6">
+                <label for="artikelname" class="block text-sm font-medium text-gray-700 mb-2">Artikelname *</label>
+                <input type="text" id="artikelname" name="artikelname" required 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Artikelnummer -->
+            <div class="mb-6">
+                <label for="artikelnummer" class="block text-sm font-medium text-gray-700 mb-2">Artikelnummer *</label>
+                <input type="text" id="artikelnummer" name="artikelnummer" required 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- EAN -->
+            <div class="mb-6">
+                <label for="ean" class="block text-sm font-medium text-gray-700 mb-2">EAN *</label>
+                <input type="text" id="ean" name="ean" required 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- UD-ID -->
+            <div class="mb-6">
+                <label for="udid" class="block text-sm font-medium text-gray-700 mb-2">UD-ID *</label>
+                <input type="text" id="udid" name="udid" required 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Beschreibung -->
+            <div class="mb-6">
+                <label for="beschreibung" class="block text-sm font-medium text-gray-700 mb-2">Beschreibung *</label>
+                <textarea id="beschreibung" name="beschreibung" rows="3" required 
+                          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+
+            <!-- Bild -->
+            <div class="mb-6">
+                <label for="bild" class="block text-sm font-medium text-gray-700 mb-2">Bild-URL</label>
+                <input type="url" id="bild" name="bild" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="https://deine-domain.de/wp-content/uploads/...">
+            </div>
+
+            <!-- PDF Links -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div>
+                    <label for="pdf_de" class="block text-sm font-medium text-gray-700 mb-2">PDF Deutsch</label>
+                    <input type="url" id="pdf_de" name="pdf_de" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="https://deine-domain.de/wp-content/uploads/...">
+                </div>
+                <div>
+                    <label for="pdf_en" class="block text-sm font-medium text-gray-700 mb-2">PDF Englisch</label>
+                    <input type="url" id="pdf_en" name="pdf_en" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="https://deine-domain.de/wp-content/uploads/...">
+                </div>
+                <div>
+                    <label for="pdf_fr" class="block text-sm font-medium text-gray-700 mb-2">PDF Französisch</label>
+                    <input type="url" id="pdf_fr" name="pdf_fr" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           placeholder="https://deine-domain.de/wp-content/uploads/...">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button type="submit" 
+                        class="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium">
+                    Artikel speichern
+                </button>
+                <button type="button" onclick="generateJSON()" 
+                        class="flex-1 bg-gray-600 text-white py-3 px-6 rounded-md hover:bg-gray-700 transition-colors font-medium">
+                    JSON generieren
+                </button>
+            </div>
+        </form>
+
+        <!-- Ergebnis -->
+        <div id="result" class="max-w-4xl mx-auto mt-6"></div>
+    </div>
+
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwLRhgTkmqRxwfSNRnH6p9vGBHC8J_xdr1JuAY0lDqWUTGkovRmrNcqvdbf9vkFQzF3/exec';
+
+        document.getElementById('adminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                artikelname: document.getElementById('artikelname').value,
+                artikelnummer: document.getElementById('artikelnummer').value,
+                ean: document.getElementById('ean').value,
+                udid: document.getElementById('udid').value,
+                beschreibung: document.getElementById('beschreibung').value,
+                bild: document.getElementById('bild').value || '',
+                pdf_de: document.getElementById('pdf_de').value || '',
+                pdf_en: document.getElementById('pdf_en').value || '',
+                pdf_fr: document.getElementById('pdf_fr').value || ''
+            };
+
+            // JSONP-Ansatz: Form-Daten als URL-Parameter senden
+            const params = new URLSearchParams();
+            params.append('data', JSON.stringify(formData));
+            
+            // Erstelle ein temporäres Script-Element für JSONP
+            const script = document.createElement('script');
+            script.src = API_URL + '?' + params.toString() + '&callback=handleResponse';
+            document.head.appendChild(script);
+            
+            // Cleanup nach 5 Sekunden
+            setTimeout(() => {
+                if (document.head.contains(script)) {
+                    document.head.removeChild(script);
+                }
+            }, 5000);
         });
-        const result = await res.json();
-        if(result.success) {
-          alert('Artikel erfolgreich gespeichert!');
-        } else {
-          alert('Fehler beim Speichern: ' + (result.error || 'Unbekannter Fehler'));
+
+        // Callback-Funktion für JSONP
+        function handleResponse(result) {
+            if (result && result.result === 'success') {
+                showResult('Artikel erfolgreich in Google Sheets gespeichert!', 'success');
+                document.getElementById('adminForm').reset();
+            } else {
+                showResult('Fehler beim Speichern: ' + JSON.stringify(result), 'error');
+            }
         }
-      } catch (err) {
-        alert('Fehler beim Speichern: ' + err.message);
-      }
-    });
-  </script>
+
+        function generateJSON() {
+            const formData = {
+                artikelname: document.getElementById('artikelname').value,
+                artikelnummer: document.getElementById('artikelnummer').value,
+                ean: document.getElementById('ean').value,
+                udid: document.getElementById('udid').value,
+                beschreibung: document.getElementById('beschreibung').value,
+                bild: document.getElementById('bild').value || '',
+                pdfs: {
+                    de: document.getElementById('pdf_de').value || '',
+                    en: document.getElementById('pdf_en').value || '',
+                    fr: document.getElementById('pdf_fr').value || ''
+                }
+            };
+
+            const jsonOutput = JSON.stringify(formData, null, 2);
+            showResult(`<pre class="bg-gray-100 p-4 rounded overflow-x-auto">${jsonOutput}</pre>`, 'info');
+        }
+
+        function showResult(message, type) {
+            const resultDiv = document.getElementById('result');
+            const bgColor = type === 'success' ? 'bg-green-100 border-green-400 text-green-700' :
+                           type === 'error' ? 'bg-red-100 border-red-400 text-red-700' :
+                           'bg-blue-100 border-blue-400 text-blue-700';
+            
+            resultDiv.innerHTML = `
+                <div class="border px-4 py-3 rounded ${bgColor}">
+                    ${message}
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html> 
