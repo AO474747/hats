@@ -80,13 +80,45 @@ function zeigeErgebnis(artikel) {
 
   resultContainer.innerHTML = `
     <div class="bg-green-100 border border-green-400 text-green-800 px-4 py-4 rounded shadow">
+      <h2 class="text-xl font-bold mb-4 text-center">Konformitätserklärung</h2>
       <div class="mb-2"><span class="font-bold">Artikelname:</span> ${artikel.artikelname || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">Artikelnummer:</span> ${artikel.artikelnummer || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">EAN:</span> ${artikel.ean || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">UD-ID:</span> ${artikel.udid || 'N/A'}</div>
       <div class="mb-2"><span class="font-bold">Beschreibung:</span> ${artikel.beschreibung || 'N/A'}</div>
       ${bildHTML}
-      ${pdfLinks ? `<div class="mb-2"><span class="font-bold">PDF-Links:</span><br>${pdfLinks}</div>` : ''}
+      ${pdfLinks ? `<div class="mb-4"><span class="font-bold">PDF-Links:</span><br>${pdfLinks}</div>` : ''}
+      
+      <div class="mt-6 pt-4 border-t border-green-300">
+        <p class="text-sm leading-relaxed">
+          Wir möchten Ihnen mitteilen, dass wir wichtige Informationen zur Konformitätserklärung zu diesem Produkt für Sie in einer PDF-Datei vorbereitet haben.
+        </p>
+        <p class="text-sm leading-relaxed mt-2">
+          Um diese Informationen anzuzeigen und herunterzuladen, bitten wir Sie, die folgenden Schritte zu befolgen:
+        </p>
+        <ol class="text-sm leading-relaxed mt-2 ml-4 list-decimal">
+          <li>Klicken Sie auf den unten stehenden Link, um die PDF-Datei in einem neuen Fenster zu öffnen.</li>
+          <li>Stellen Sie sicher, dass Sie einen PDF-Viewer auf Ihrem Gerät installiert haben, um die Datei problemlos anzeigen zu können.</li>
+        </ol>
+        <p class="text-sm leading-relaxed mt-2">
+          Falls Sie noch keinen PDF-Viewer installiert haben, können Sie einen kostenlosen PDF-Viewer wie Adobe Acrobat Reader oder Foxit Reader herunterladen und installieren.
+        </p>
+        <ol class="text-sm leading-relaxed mt-2 ml-4 list-decimal" start="3">
+          <li>Sobald die PDF-Datei geöffnet ist, können Sie sie lesen, herunterladen oder ausdrucken, je nach Ihren individuellen Bedürfnissen.</li>
+        </ol>
+        <p class="text-sm leading-relaxed mt-2">
+          Falls Sie Fragen oder Probleme beim Öffnen der PDF-Datei haben, stehen wir Ihnen jederzeit zur Verfügung.
+        </p>
+        <p class="text-sm leading-relaxed mt-2">
+          Zögern Sie nicht, uns zu kontaktieren, und wir helfen Ihnen gerne weiter.
+        </p>
+        <p class="text-sm leading-relaxed mt-2 font-semibold">
+          Vielen Dank für Ihr Verständnis und Ihre Aufmerksamkeit.
+        </p>
+        <p class="text-sm leading-relaxed mt-2 font-semibold">
+          Ihr Team von Hatshats Handelsgesellschaft mbh
+        </p>
+      </div>
     </div>
   `;
 }
