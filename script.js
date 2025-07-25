@@ -101,7 +101,7 @@ function zeigeErgebnis(artikel) {
         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
         </svg>
-        <img src="${lang.flag}" alt="${lang.lang} Flag" class="w-6 h-4 mr-2 rounded-sm" onerror="this.outerHTML = '${lang.flagEmoji}'">
+        <span class="mr-2 text-lg">${lang.flagEmoji}</span>
         ${lang.lang} PDF
       </a>`;
     }
@@ -151,12 +151,12 @@ function zeigeErgebnis(artikel) {
             </h3>
             <div class="space-y-2 text-sm">
               <div class="flex justify-between">
-                <span class="font-semibold text-gray-600">Artikelname:</span>
-                <span class="text-gray-800">${artikel.artikelname || 'N/A'}</span>
-              </div>
-              <div class="flex justify-between">
                 <span class="font-semibold text-gray-600">Artikelnummer:</span>
                 <span class="text-gray-800 font-mono">${artikel.artikelnummer || 'N/A'}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="font-semibold text-gray-600">Artikelname:</span>
+                <span class="text-gray-800">${artikel.artikelname || 'N/A'}</span>
               </div>
               <div class="flex justify-between">
                 <span class="font-semibold text-gray-600">EAN:</span>
@@ -187,7 +187,7 @@ function zeigeErgebnis(artikel) {
               <svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
-              <img src="flagen/de.svg" alt="DE Flag" class="w-8 h-6 mr-2 rounded-sm" onerror="this.outerHTML = '🇩🇪'">
+              <span class="mr-2 text-xl">🇩🇪</span>
               Konformitätserklärungen (PDF)
             </h3>
             <div class="flex flex-wrap gap-2">
