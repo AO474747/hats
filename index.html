@@ -14,32 +14,35 @@
     h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
   </style>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-start p-4">
-  <div class="w-full max-w-xl mt-8">
-    <h1 class="text-2xl font-bold mb-6 text-center" style="color:#f6ae42">Konformitätserklärung finden – schnell & einfach</h1>
-    <div class="bg-white shadow-md rounded-lg p-6 mb-4">
-      <p class="text-center text-gray-600 text-sm mb-4">Geben Sie die Artikelnummer, EAN oder UD-ID Ihres Produkts ein,<br>um die zugehörige EU-Konformitätserklärung (PDF) sofort abzurufen.</p>
-      <label for="searchInput" class="block text-base font-semibold mb-2">Suche nach Artikelnummer, EAN oder UD-ID</label>
-      <div class="relative">
-        <svg class="absolute left-3 top-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-        <input id="searchInput" type="text" class="w-full border border-gray-300 rounded px-3 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-yellow-400" placeholder="z.B. HAT12345, 1234567890123 oder UD001">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <div class="w-full px-4 py-8">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Konformitätserklärung finden – schnell & einfach</h1>
+      
+      <div class="bg-white shadow-2xl rounded-2xl p-8 mb-6 border border-gray-100">
+        <p class="text-center text-gray-600 text-lg mb-6">Geben Sie die Artikelnummer, EAN oder UD-ID Ihres Produkts ein,<br>um die zugehörige EU-Konformitätserklärung (PDF) sofort abzurufen.</p>
+        <label for="searchInput" class="block text-lg font-semibold mb-3 text-gray-700">Suche nach Artikelnummer, EAN oder UD-ID</label>
+        <div class="relative">
+          <svg class="absolute left-4 top-4 h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input id="searchInput" type="text" class="w-full border-2 border-gray-200 rounded-xl px-4 py-4 pl-12 text-lg focus:outline-none focus:ring-4 focus:ring-orange-200 focus:border-orange-400 transition-all duration-200" placeholder="z.B. HAT12345, 1234567890123 oder UD001">
+        </div>
+        <button id="searchBtn" class="mt-6 w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg">Konformität jetzt anzeigen</button>
       </div>
-      <button id="searchBtn" class="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded transition">Konformität jetzt anzeigen</button>
-    </div>
-    
-    <!-- Hinweistext -->
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-      <h3 class="font-bold text-blue-800 mb-2">ARTIKELSUCHE</h3>
-      <div class="text-sm text-blue-700 space-y-2">
-        <p><strong>Hinweis:</strong></p>
-        <p>Um die Konformitätserklärungen zu finden, können Sie entweder die EAN oder die Artikelnummer in das Suchfeld eingeben und mit der Eingabetaste suchen. Die EAN-Nummer finden Sie auf der Verpackung unterhalb des Barcodes oder im Online-Shop auf der jeweiligen Produktseite. Die Artikelnummer kann ebenfalls auf der Verpackung oder im Online-Shop angegeben sein.</p>
-        <p>Bitte beachten Sie, dass zur Anzeige der PDFs der Adobe Reader erforderlich ist. Der Adobe Reader ist ein kostenloses Programm, das im Internet erhältlich ist. Nach der Installation können Sie es unbegrenzt und kostenlos nutzen, um PDF-Dokumente anzuzeigen.</p>
+      
+      <!-- Hinweistext -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-6 shadow-lg">
+        <h3 class="font-bold text-blue-800 mb-3 text-lg">ARTIKELSUCHE</h3>
+        <div class="text-sm text-blue-700 space-y-3">
+          <p><strong>Hinweis:</strong></p>
+          <p>Um die Konformitätserklärungen zu finden, können Sie entweder die EAN oder die Artikelnummer in das Suchfeld eingeben und mit der Eingabetaste suchen. Die EAN-Nummer finden Sie auf der Verpackung unterhalb des Barcodes oder im Online-Shop auf der jeweiligen Produktseite. Die Artikelnummer kann ebenfalls auf der Verpackung oder im Online-Shop angegeben sein.</p>
+          <p>Bitte beachten Sie, dass zur Anzeige der PDFs der Adobe Reader erforderlich ist. Der Adobe Reader ist ein kostenloses Programm, das im Internet erhältlich ist. Nach der Installation können Sie es unbegrenzt und kostenlos nutzen, um PDF-Dokumente anzuzeigen.</p>
+        </div>
       </div>
+      
+      <div id="resultContainer"></div>
     </div>
-    
-    <div id="resultContainer"></div>
   </div>
   <script src="script.js"></script>
 </body>
