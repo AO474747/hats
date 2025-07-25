@@ -59,25 +59,163 @@
                        placeholder="https://deine-domain.de/wp-content/uploads/...">
             </div>
 
-            <!-- PDF Links -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div>
-                    <label for="pdf_de" class="block text-sm font-medium text-gray-700 mb-2">PDF Deutsch</label>
-                    <input type="url" id="pdf_de" name="pdf_de" 
-                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           placeholder="https://deine-domain.de/wp-content/uploads/...">
-                </div>
-                <div>
-                    <label for="pdf_en" class="block text-sm font-medium text-gray-700 mb-2">PDF Englisch</label>
-                    <input type="url" id="pdf_en" name="pdf_en" 
-                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           placeholder="https://deine-domain.de/wp-content/uploads/...">
-                </div>
-                <div>
-                    <label for="pdf_fr" class="block text-sm font-medium text-gray-700 mb-2">PDF Französisch</label>
-                    <input type="url" id="pdf_fr" name="pdf_fr" 
-                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           placeholder="https://deine-domain.de/wp-content/uploads/...">
+            <!-- PDF Links - Alle 18 Sprachen -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">PDF-Links für alle Sprachen</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                         <div>
+                         <label for="pdf_de" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/de.png" alt="DE" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Deutsch
+                         </label>
+                         <input type="url" id="pdf_de" name="pdf_de" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_nl" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/nl.png" alt="NL" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Nederlands
+                         </label>
+                         <input type="url" id="pdf_nl" name="pdf_nl" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_pl" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/pl.png" alt="PL" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Polski
+                         </label>
+                         <input type="url" id="pdf_pl" name="pdf_pl" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_ro" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/ro.png" alt="RO" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Română
+                         </label>
+                         <input type="url" id="pdf_ro" name="pdf_ro" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_ru" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/ru.png" alt="RU" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Русский
+                         </label>
+                         <input type="url" id="pdf_ru" name="pdf_ru" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_sv" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/sv.png" alt="SV" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Svenska
+                         </label>
+                         <input type="url" id="pdf_sv" name="pdf_sv" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_sl" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/sl.png" alt="SL" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Slovenščina
+                         </label>
+                         <input type="url" id="pdf_sl" name="pdf_sl" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_tr" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/tr.png" alt="TR" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Türkçe
+                         </label>
+                         <input type="url" id="pdf_tr" name="pdf_tr" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_fi" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/fi.png" alt="FI" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Suomi
+                         </label>
+                         <input type="url" id="pdf_fi" name="pdf_fi" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_fr" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/fr.png" alt="FR" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Français
+                         </label>
+                         <input type="url" id="pdf_fr" name="pdf_fr" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_en" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/en.png" alt="EN" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             English
+                         </label>
+                         <input type="url" id="pdf_en" name="pdf_en" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_it" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/it.png" alt="IT" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Italiano
+                         </label>
+                         <input type="url" id="pdf_it" name="pdf_it" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_es" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/es.png" alt="ES" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Español
+                         </label>
+                         <input type="url" id="pdf_es" name="pdf_es" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_da" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/da.png" alt="DA" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Dansk
+                         </label>
+                         <input type="url" id="pdf_da" name="pdf_da" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_cs" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/cs.png" alt="CS" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Čeština
+                         </label>
+                         <input type="url" id="pdf_cs" name="pdf_cs" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_hu" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/hu.png" alt="HU" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Magyar
+                         </label>
+                         <input type="url" id="pdf_hu" name="pdf_hu" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
+                     <div>
+                         <label for="pdf_hr" class="block text-sm font-medium text-gray-700 mb-2 flex items-center">
+                             <img src="flaggen/hr.png" alt="HR" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+                             Hrvatski
+                         </label>
+                         <input type="url" id="pdf_hr" name="pdf_hr" 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="https://deine-domain.de/wp-content/uploads/...">
+                     </div>
                 </div>
             </div>
 
@@ -112,8 +250,22 @@
                 beschreibung: document.getElementById('beschreibung').value,
                 bild: document.getElementById('bild').value || '',
                 pdf_de: document.getElementById('pdf_de').value || '',
+                pdf_nl: document.getElementById('pdf_nl').value || '',
+                pdf_pl: document.getElementById('pdf_pl').value || '',
+                pdf_ro: document.getElementById('pdf_ro').value || '',
+                pdf_ru: document.getElementById('pdf_ru').value || '',
+                pdf_sv: document.getElementById('pdf_sv').value || '',
+                pdf_sl: document.getElementById('pdf_sl').value || '',
+                pdf_tr: document.getElementById('pdf_tr').value || '',
+                pdf_fi: document.getElementById('pdf_fi').value || '',
+                pdf_fr: document.getElementById('pdf_fr').value || '',
                 pdf_en: document.getElementById('pdf_en').value || '',
-                pdf_fr: document.getElementById('pdf_fr').value || ''
+                pdf_it: document.getElementById('pdf_it').value || '',
+                pdf_es: document.getElementById('pdf_es').value || '',
+                pdf_da: document.getElementById('pdf_da').value || '',
+                pdf_cs: document.getElementById('pdf_cs').value || '',
+                pdf_hu: document.getElementById('pdf_hu').value || '',
+                pdf_hr: document.getElementById('pdf_hr').value || ''
             };
 
             // JSONP-Ansatz: Form-Daten als URL-Parameter senden
@@ -151,11 +303,23 @@
                 udid: document.getElementById('udid').value,
                 beschreibung: document.getElementById('beschreibung').value,
                 bild: document.getElementById('bild').value || '',
-                pdfs: {
-                    de: document.getElementById('pdf_de').value || '',
-                    en: document.getElementById('pdf_en').value || '',
-                    fr: document.getElementById('pdf_fr').value || ''
-                }
+                pdf_de: document.getElementById('pdf_de').value || '',
+                pdf_nl: document.getElementById('pdf_nl').value || '',
+                pdf_pl: document.getElementById('pdf_pl').value || '',
+                pdf_ro: document.getElementById('pdf_ro').value || '',
+                pdf_ru: document.getElementById('pdf_ru').value || '',
+                pdf_sv: document.getElementById('pdf_sv').value || '',
+                pdf_sl: document.getElementById('pdf_sl').value || '',
+                pdf_tr: document.getElementById('pdf_tr').value || '',
+                pdf_fi: document.getElementById('pdf_fi').value || '',
+                pdf_fr: document.getElementById('pdf_fr').value || '',
+                pdf_en: document.getElementById('pdf_en').value || '',
+                pdf_it: document.getElementById('pdf_it').value || '',
+                pdf_es: document.getElementById('pdf_es').value || '',
+                pdf_da: document.getElementById('pdf_da').value || '',
+                pdf_cs: document.getElementById('pdf_cs').value || '',
+                pdf_hu: document.getElementById('pdf_hu').value || '',
+                pdf_hr: document.getElementById('pdf_hr').value || ''
             };
 
             const jsonOutput = JSON.stringify(formData, null, 2);

@@ -74,31 +74,38 @@ function zeigeErgebnis(artikel) {
   }
   let pdfLinks = '';
   
-  // PDF-Links aus Google Sheets (direkte Felder)
-  if (artikel.pdf_de) {
-    pdfLinks += `<a href="${artikel.pdf_de}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium">
-      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-      </svg>
-      🇩🇪 DE PDF
-    </a>`;
-  }
-  if (artikel.pdf_en) {
-    pdfLinks += `<a href="${artikel.pdf_en}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium">
-      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-      </svg>
-      🇬🇧 EN PDF
-    </a>`;
-  }
-  if (artikel.pdf_fr) {
-    pdfLinks += `<a href="${artikel.pdf_fr}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium">
-      <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-      </svg>
-      🇫🇷 FR PDF
-    </a>`;
-  }
+  // PDF-Links aus Google Sheets (alle 18 Sprachen)
+  const pdfLanguages = [
+    { field: 'pdf_de', flag: 'flaggen/de.png', lang: 'DE', title: 'EU-Konformitätserklärung' },
+    { field: 'pdf_nl', flag: 'flaggen/nl.png', lang: 'NL', title: 'EU-conformiteitsverklaring' },
+    { field: 'pdf_pl', flag: 'flaggen/pl.png', lang: 'PL', title: 'Deklaracja zgodności UE' },
+    { field: 'pdf_ro', flag: 'flaggen/ro.png', lang: 'RO', title: 'Declarație UE de conformitate' },
+    { field: 'pdf_ru', flag: 'flaggen/ru.png', lang: 'RU', title: 'Декларация соответствия ЕС' },
+    { field: 'pdf_sv', flag: 'flaggen/sv.png', lang: 'SV', title: 'EU-försäkran om överensstämmelse' },
+    { field: 'pdf_sl', flag: 'flaggen/sl.png', lang: 'SL', title: 'Izjava EU o skladnosti' },
+    { field: 'pdf_tr', flag: 'flaggen/tr.png', lang: 'TR', title: 'AB Uygunluk Beyanı' },
+    { field: 'pdf_fi', flag: 'flaggen/fi.png', lang: 'FI', title: 'EU-vaatimustenmukaisuusvakuutus' },
+    { field: 'pdf_fr', flag: 'flaggen/fr.png', lang: 'FR', title: 'Déclaration UE de conformité' },
+    { field: 'pdf_en', flag: 'flaggen/en.png', lang: 'EN', title: 'EU Declaration of Conformity' },
+    { field: 'pdf_it', flag: 'flaggen/it.png', lang: 'IT', title: 'Dichiarazione di conformità UE' },
+    { field: 'pdf_es', flag: 'flaggen/es.png', lang: 'ES', title: 'Declaración UE de conformidad' },
+    { field: 'pdf_da', flag: 'flaggen/da.png', lang: 'DA', title: 'EU-overensstemmelseserklæring' },
+    { field: 'pdf_cs', flag: 'flaggen/cs.png', lang: 'CS', title: 'EU prohlášení o shodě' },
+    { field: 'pdf_hu', flag: 'flaggen/hu.png', lang: 'HU', title: 'EU-megfelelőségi nyilatkozat' },
+    { field: 'pdf_hr', flag: 'flaggen/hr.png', lang: 'HR', title: 'EU izjava o sukladnosti' }
+  ];
+
+  pdfLanguages.forEach(lang => {
+    if (artikel[lang.field] && artikel[lang.field].trim() !== '') {
+      pdfLinks += `<a href="${artikel[lang.field]}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-200 text-sm font-medium" title="${lang.title}">
+        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <img src="${lang.flag}" alt="${lang.lang} Flag" class="w-5 h-4 mr-2 rounded-sm" onerror="this.style.display='none'">
+        ${lang.lang} PDF
+      </a>`;
+    }
+  });
   
   // Bild-HTML erstellen (falls vorhanden)
   let bildHTML = '';
