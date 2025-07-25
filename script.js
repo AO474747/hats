@@ -23,9 +23,9 @@ fetch('https://script.google.com/macros/s/AKfycbwdef9UPveahEToexpEsAvJFP193wCDkK
 function sucheArtikel(query) {
   query = query.trim().toLowerCase();
   return artikelDaten.find(artikel =>
-    (artikel.artikelnummer && artikel.artikelnummer.toLowerCase() === query) ||
+    (artikel.artikelnummer && artikel.artikelnummer.toString().toLowerCase() === query) ||
     (artikel.ean && artikel.ean.toString() === query) ||
-    (artikel.udid && artikel.udid.toLowerCase() === query)
+    (artikel.udid && artikel.udid.toString().toLowerCase() === query)
   );
 }
 
