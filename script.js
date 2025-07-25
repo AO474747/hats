@@ -187,6 +187,7 @@ function zeigeErgebnis(artikel) {
               <svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M4 18h12a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
+              <span class="mr-2">[DE]</span>
               Konformitätserklärungen (PDF)
             </h3>
             <div class="flex flex-wrap gap-2">
