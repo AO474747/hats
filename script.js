@@ -14,8 +14,13 @@ const flags = {
 let artikelDaten = [];
 fetch('https://script.google.com/macros/s/AKfycbwdef9UPveahEToexpEsAvJFP193wCDkKp2E0bzaPlw8q5vfLlgcRSL5DWti40mXiFV/exec')
   .then(res => res.json())
-  .then(data => { artikelDaten = data; })
-  .catch(() => {
+  .then(data => { 
+    artikelDaten = data; 
+    console.log('Geladene Artikel:', artikelDaten);
+    console.log('Anzahl Artikel:', artikelDaten.length);
+  })
+  .catch((error) => {
+    console.error('Fehler beim Laden:', error);
     resultContainer.innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">Fehler beim Laden der Daten.</div>';
   });
 
